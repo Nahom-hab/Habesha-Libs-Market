@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import ProductCard from '../components/ProductCard';
+import NoProducts from '../components/NoProductFound';
 
 export default function Search() {
     const [products, setProducts] = useState([]);
@@ -50,11 +51,14 @@ export default function Search() {
         <div>
             <Header />
             <div className="pt-10 flex flex-col items-center justify-center">
-                <div className="font-bold text-4xl">Results</div>
+                {currentProducts.length === 0 || loading ? '' : <div className="font-medium text-3xl">Results</div>}
                 {loading ? ( // Show spinner while loading
-                    <div className="mt-8 animate-spin h-10 w-10 border-4 border-[#201408] border-t-transparent rounded-full"></div>
+                    <div className='p-20 mt-20 mb-32'>
+                        <div className="mt-8 animate-spin h-20 w-20 border-4 border-[#201408] border-t-transparent rounded-full"></div>
+
+                    </div>
                 ) : currentProducts.length === 0 ? ( // No products found
-                    <div className="mt-8 text-xl">No products found</div>
+                    <NoProducts />
                 ) : (
                     <div
                         className={`grid grid-cols-2 mt-8 gap-10 lg:grid-cols-4 transition-opacity duration-300 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}
@@ -74,31 +78,34 @@ export default function Search() {
                         ))}
                     </div>
                 )}
-                <div className="flex items-center my-10 gap-6">
-                    <button
-                        onClick={() => handlePageChange(currentPage - 1)}
-                        disabled={currentPage === 1}
-                        className="lg:px-4 px-1 rounded-md py-2 border border-red-950"
-                    >
-                        Previous
-                    </button>
-                    {[...Array(totalPages)].map((_, index) => (
+                {currentProducts.length === 0 || loading ?
+                    '' : (<div className="flex items-center my-10 gap-6">
                         <button
-                            key={index}
-                            onClick={() => handlePageChange(index + 1)}
-                            className={`lg:px-4 px-1 lg:h-8 h-6 rounded-md border border-red-950 ${currentPage === index + 1 ? 'bg-red-950 text-white' : ''}`}
+                            onClick={() => handlePageChange(currentPage - 1)}
+                            disabled={currentPage === 1}
+                            className="lg:px-4 px-1 rounded-md py-2 border border-red-950"
                         >
-                            {index + 1}
+                            Previous
                         </button>
-                    ))}
-                    <button
-                        onClick={() => handlePageChange(currentPage + 1)}
-                        disabled={currentPage === totalPages}
-                        className="lg:px-4 px-1 rounded-md py-2 border border-red-950"
-                    >
-                        Next
-                    </button>
-                </div>
+                        {[...Array(totalPages)].map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => handlePageChange(index + 1)}
+                                className={`lg:px-4 px-1 lg:h-8 h-6 rounded-md border border-red-950 ${currentPage === index + 1 ? 'bg-red-950 text-white' : ''}`}
+                            >
+                                {index + 1}
+                            </button>
+                        ))}
+                        <button
+                            onClick={() => handlePageChange(currentPage + 1)}
+                            disabled={currentPage === totalPages}
+                            className="lg:px-4 px-1 rounded-md py-2 border border-red-950"
+                        >
+                            Next
+                        </button>
+                    </div>)}
+
+
             </div>
             <Footer />
         </div>

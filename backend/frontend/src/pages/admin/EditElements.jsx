@@ -38,8 +38,6 @@ export default function EditElements() {
                 if (response.ok) {
                     const element = await response.json();
                     setFormData(element);
-                    console.log(formData);
-
                     setFormImages({
                         discriptionimg1: element.discriptionimg1,
                         discriptionimg2: element.discriptionimg2,

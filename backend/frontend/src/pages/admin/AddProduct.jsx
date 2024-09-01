@@ -100,7 +100,6 @@ export default function AddProduct() {
                     throw new Error('Failed to post product');
                 }
                 navigate('/admin')
-                console.log(res);
 
                 // Clear form after successful submission
                 setFormData({

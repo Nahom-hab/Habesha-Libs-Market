@@ -39,10 +39,8 @@ const DraggableImage = ({ image, index, moveImage, removeImage }) => {
     );
 };
 
-const ImageUploader = ({ onImagesSelect }) => {
+const ImageUploader = ({ onImagesSelect, imagee }) => {
     const [images, setImages] = useState([]);
-
-
     const handleFileChange = (e) => {
         const files = Array.from(e.target.files);
         setImages((prev) => [...prev, ...files]);

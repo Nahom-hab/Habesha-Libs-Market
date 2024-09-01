@@ -124,8 +124,6 @@ export default function EditProduct() {
                     throw new Error('Failed to update product');
                 }
                 navigate('/admin');
-                console.log(res);
-
                 // Clear form after successful submission
                 setFormData({
                     productName: '',
@@ -152,7 +150,7 @@ export default function EditProduct() {
         <div className='flex  flex-col  lg:flex-row gap-5'>
             <AdminNavigation />
             <div className='lg:pl-48 flex-1 p-5 '>
-                <div className='font-bold text-2xl mb-5'>Add Products</div>
+                <div className='font-bold text-2xl mb-5'>Edit Products</div>
                 <form className='flex  flex-col lg:flex-row gap-5' onSubmit={handleSubmit}>
                     <div className='mt-5 flex-1'>
                         {/* General Information */}
@@ -258,7 +256,7 @@ export default function EditProduct() {
                                 className='bg-orange-500 w-[98%]   text-white py-3 rounded-md hover:bg-orange-600'
                                 disabled={loading}
                             >
-                                {loading ? 'Posting...' : 'POST PRODUCT'}
+                                {loading ? 'Editing...' : 'EDIT PRODUCT'}
                             </button>
                         </div>
                     </div>
