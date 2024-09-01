@@ -25,7 +25,7 @@ export default function EditElements() {
 
     const [formImages, setFormImages] = useState({
         discriptionimg1: '',
-        advertizeIMG: '',
+        advertizeIMG: habesha,
     });
 
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -175,11 +175,11 @@ export default function EditElements() {
                         />
                     </div>
                     <img className='w-[120px]' src={formImages.advertizeIMG} alt='Discount' />
-                    <div className='w-[20%]'>
-                        <div className='text-2xl'>{formData.discountText}</div>
-                        <div className='text-[12px]'>{formData.discountDesc}</div>
+                    <div className='w-[33%]'>
+                        <div className=' flex gap-2 text-xl'> <span className='font-extrabold'>{formData.discountText} </span> <span>Discount</span> </div>
+                        <div className='text-[11px] text-slate-300'>{formData.discountDesc}</div>
                     </div>
-                </div>
+                </div>``
             </div>
 
             {/* Render EditPopup if open */}

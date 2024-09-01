@@ -34,7 +34,7 @@ export default function Product() {
     return (
         <div>
             <Header />
-            <div className='flex lg:flex-row flex-col items-center justify-center'>
+            <div className='flex lg:flex-row flex-col items-center mt-5  justify-center'>
                 <div className='flex flex-col justify-center items-center'>
                     <img className='lg:m-5 mb-6 rounded-xl w-[400px] h-[430px] lg:w-[500px] lg:h-[500px] object-cover' src={currentImage} alt={product.name} />
                     <div className='flex lg:ml-5 gap-3'>
@@ -49,12 +49,12 @@ export default function Product() {
                         ))}
                     </div>
                 </div>
-                <div className='pt-10 w-[420px] lg:w-[500px]'>
+                <div className='pt-10 p-2 w-[340px] lg:w-[500px]'>
                     <div className='flex justify-between'>
-                        <div className='text-2xl lg:text-4xl'>
+                        <div className='text-[23px] lg:text-4xl'>
                             <span className='text-slate-500'>Name:</span> {product.name}
                         </div>
-                        <div className='rounded-full h-16 w-18 flex ml-2 p-3 font-bold text-center items-center  bg-green-600 text-white'>
+                        <div className='rounded-full lg:text-lg text-[15px] h-16 w-18 flex ml-2 p-3 font-bold text-center items-center  bg-green-600 text-white'>
                             {product.discountedPercent}% OFF
                         </div>
                     </div>
@@ -71,14 +71,14 @@ export default function Product() {
                     </div>
                     <div className='mt-5 flex gap-3 text-2xl'>
                         <span>Tags:</span>
-                        <div className='flex gap-2 text-[15px]'>
+                        <div className='flex flex-wrap gap-2 text-[15px]'>
                             {product.tags.map((tag, index) => (
                                 <span key={index} className='bg-[#ffead1] rounded-2xl px-2'>{tag}</span>
                             ))}
                         </div>
                     </div>
-                    <div className='mt-10 mb-20 flex gap-5 items-center'>
-                        <div className='text-xl lg:text-2xl hover:opacity-50 items-center flex gap-2 rounded-xl bg-green-500 text-white p-2 w-fit'>
+                    <div className='mt-10 mb-20 flex gap-5 flex-col lg:flex-row items-center'>
+                        <div className='text-lg lg:text-2xl hover:opacity-50 items-center flex gap-2 rounded-xl bg-green-500 text-white p-2 w-fit'>
                             <FaShoppingCart className='text-xl lg:text-2xl' />
                             Order Now
                         </div>

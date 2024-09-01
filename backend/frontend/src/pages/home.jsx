@@ -91,7 +91,7 @@ export default function Home() {
             <div className='flex flex-col items-center lg:flex-row xl:justify-between mt-5 justify-center'>
                 <div className='lg:ml-28 mb-10 lg:mb-0 mt-5'>
                     <div className='font-bold'>
-                        <span className='text-3xl lg:text-5xl mb-2 block'>{titleLine1}</span>
+                        <span className='text-3xl lg:text-5xl mt-5 lg:mt-0 mb-1 block'>{titleLine1}</span>
                         <span className='text-3xl lg:text-5xl mb-2 block'>{titleLine2}</span>
                     </div>
                     <div className='text-slate-500 text-md mb-2 lg:text-xl'>{subtitle}</div>
@@ -101,7 +101,7 @@ export default function Home() {
                 <div>
                     <div className='flex justify-center mt-12 ml-7 lg:mr-12'>
                         <img className='relative right-2 w-64 z-10' src={habesha} alt="" />
-                        <div className='relative top-10 right-24 bg-[#c4af8e] bg-opacity-30 shadow-lg h-40 lg:h-44 p-5 rounded-lg w-[260px]'>
+                        <div className='relative top-10 right-16 lg:right-24 bg-[#c4af8e] bg-opacity-30 shadow-lg h-40 lg:h-44 p-5 rounded-lg w-[260px]'>
                             <h1 className='text-sm lg:text-xl font-bold'>
                                 <span className='block'>{productName}</span>
                             </h1>
@@ -141,10 +141,10 @@ export default function Home() {
                 <img className='w-[120px]' src={habesha} alt="" />
                 <div className='w-[20%]'>
                     <div className='font-bold'>
-                        <span className='text-xl lg:text-4xl'>{discountText}</span>
-                        <span className='text-md'>Discount</span>
+                        <span className='text-xl lg:text-3xl'>{discountText}</span>
+                        <span className='text-sm'>Discount</span>
                     </div>
-                    <p className='text-[10px] lg:text-[12px] text-slate-300'>{discountDesc}</p>
+                    <p className='text-[9px] lg:text-[12px] text-slate-300'>{discountDesc}</p>
                 </div>
                 <div className='bg-[#FFF4E9] px-5 py-1 rounded-3xl flex gap-6'>
                     <button className='text-white rounded-2xl px-4 lg:text-[14px] text-[10px] bg-[#201408]'>Get Product</button>
