@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AdminNavigation from '../../components/AdminNavigation';
 import { FaTimes } from 'react-icons/fa';
-import ImageUploader from '../../components/imageUploader';
+import ImageUploader from '../../components/ImageUploader';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { app } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
