@@ -58,7 +58,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
 
     return (
         <div className='fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center'>
-            <div className='bg-white p-6 rounded-lg w-11/12 lg:w-1/2'>
+            <div className='bg-[#FFF4E9] p-6 rounded-lg w-11/12 lg:w-1/2'>
                 <div className='flex justify-between items-center'>
                     <h2 className='text-xl font-bold mb-4'>Edit {currentEditField}</h2>
                     <button onClick={onClose}>
@@ -75,7 +75,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 value={localFormData.titleLine1}
                                 onChange={handleInputChange}
                                 placeholder='Title Line 1'
-                                className='block mb-2 w-full p-2 border border-gray-300 rounded'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
                             <input
                                 type='text'
@@ -83,7 +83,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 value={localFormData.titleLine2}
                                 onChange={handleInputChange}
                                 placeholder='Title Line 2'
-                                className='block mb-2 w-full p-2 border border-gray-300 rounded'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
                             <input
                                 type='text'
@@ -91,7 +91,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 value={localFormData.subtitle}
                                 onChange={handleInputChange}
                                 placeholder='Subtitle'
-                                className='block mb-2 w-full p-2 border border-gray-300 rounded'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
                         </>
                     )}
@@ -103,7 +103,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 value={localFormData.productName}
                                 onChange={handleInputChange}
                                 placeholder='Product Name'
-                                className='block mb-2 w-full p-2 border border-gray-300 rounded'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
                             <input
                                 type='text'
@@ -111,7 +111,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 value={localFormData.productDesc}
                                 onChange={handleInputChange}
                                 placeholder='Product Description'
-                                className='block mb-2 w-full p-2 border border-gray-300 rounded'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
                         </>
                     )}
@@ -122,7 +122,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                             value={localFormData.shopAddress}
                             onChange={handleInputChange}
                             placeholder='Shop Address'
-                            className='block mb-2 w-full p-2 border border-gray-300 rounded'
+                            className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                         />
                     )}
                     {currentEditField === 'event' && (
@@ -133,7 +133,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 value={localFormData.eventTitle}
                                 onChange={handleInputChange}
                                 placeholder='Event Title'
-                                className='block mb-2 w-full p-2 border border-gray-300 rounded'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
                             <input
                                 type='text'
@@ -141,7 +141,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 value={localFormData.eventDesc}
                                 onChange={handleInputChange}
                                 placeholder='Event Description'
-                                className='block mb-2 w-full p-2 border border-gray-300 rounded'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
                             {/* <input
                                 type='file'
@@ -160,7 +160,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 value={localFormData.discountText}
                                 onChange={handleInputChange}
                                 placeholder='Discount Text'
-                                className='block mb-2 w-full p-2 border border-gray-300 rounded'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
                             <input
                                 type='text'
@@ -168,7 +168,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 value={localFormData.productTitle2}
                                 onChange={handleInputChange}
                                 placeholder='Product Title 2'
-                                className='block mb-2 w-full p-2 border border-gray-300 rounded'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
                             <input
                                 type='text'
@@ -176,7 +176,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 value={localFormData.productDesc2}
                                 onChange={handleInputChange}
                                 placeholder='Product Description 2'
-                                className='block mb-2 w-full p-2 border border-gray-300 rounded'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca]s border-gray-300 rounded'
                             />
                         </>
                     )}
@@ -188,7 +188,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 value={localFormData.discountText}
                                 onChange={handleInputChange}
                                 placeholder='Discount Text'
-                                className='block mb-2 w-full p-2 border border-gray-300 rounded'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
                             <input
                                 type='text'
@@ -196,7 +196,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 value={localFormData.discountDesc}
                                 onChange={handleInputChange}
                                 placeholder='Discount Description'
-                                className='block mb-2 w-full p-2 border border-gray-300 rounded'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
                             {/* <input
                                 type='file'
@@ -217,7 +217,7 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                     </button>
                     <button
                         onClick={handleSave}
-                        className='bg-blue-500 text-white px-4 py-2 rounded flex items-center'
+                        className='bg-[#f5a147] text-white px-4 py-2 rounded flex items-center'
                     >
                         <FaSave className='mr-2' /> Save
                     </button>

@@ -30,9 +30,10 @@ export default function Header() {
     return (
         <div className='relative'>
             <div className='flex p-2 h-18 justify-between'>
-                <h3 className='text-lg lg:text-4xl'>
-                    <span className='font-bold  lg:text-4xl text-lg'>Teka</span>Habesha
-                </h3>
+                <Link to='/'>
+                    <h3 className='text-lg lg:text-4xl'>
+                        <span className='font-bold  lg:text-4xl text-lg'>Teka</span>Habesha
+                    </h3></Link>
                 <div className='flex lg:gap-14 gap-4 justify-between items-center'>
                     <div className='md:flex hidden gap-14 items-center'>
                         <Link to='/' className='text-black'>Home</Link>

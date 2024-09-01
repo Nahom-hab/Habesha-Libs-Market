@@ -23,7 +23,7 @@ export default function Search() {
     }, [location.search]);
 
     return (
-        <div className="flex items-center ml-4 bg-orange-100 p-1 rounded-lg shadow-md">
+        <form onSubmit={handleSearch} className="flex items-center ml-4 bg-orange-100 p-1 rounded-lg shadow-md">
             <input
                 type="text"
                 placeholder="Search"
@@ -33,11 +33,10 @@ export default function Search() {
             />
             <button
                 type="submit"
-                onClick={handleSearch}
                 className="bg-transparent border-none text-gray-800 text-xl cursor-pointer hover:text-red-400"
             >
                 <FaSearch className="w-10" />
             </button>
-        </div>
+        </form>
     );
 }

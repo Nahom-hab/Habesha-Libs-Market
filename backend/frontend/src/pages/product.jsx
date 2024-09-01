@@ -34,7 +34,7 @@ export default function Product() {
     return (
         <div>
             <Header />
-            <div className='flex lg:flex-row flex-col items-center mt-5  justify-center'>
+            <div className='flex lg:flex-row flex-col items-center mt-5 justify-center'>
                 <div className='flex flex-col justify-center items-center'>
                     <img className='lg:m-5 mb-6 rounded-xl w-[400px] h-[430px] lg:w-[500px] lg:h-[500px] object-cover' src={currentImage} alt={product.name} />
                     <div className='flex lg:ml-5 gap-3'>
