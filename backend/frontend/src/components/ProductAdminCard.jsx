@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import useAdmin from '../zustand/useAdmin';
 
-export default function ProductAdminCard({ img, name, id, onDelete }) {
-
+export default function ProductAdminCard({ img, name, nameAMH, id, onDelete }) {
+    const { isEng } = useAdmin()
     const handleDelete = async () => {
         const confirmed = window.confirm("Are you sure you want to delete this product?");
         if (!confirmed) return;
@@ -40,8 +41,8 @@ export default function ProductAdminCard({ img, name, id, onDelete }) {
             {/* Content */}
             <div className='flex p-1 pr-3 text-white bg-[#201408] justify-between items-center'>
                 <div className='pl-2'>
-                    <div className='text-[13px] font-bold'>{name}</div>
-                    <div className='font-light text-[12px]'>More detail</div>
+                    <div className='text-[13px] font-bold'>{isEng ? name : nameAMH}</div>
+                    <div className='font-light text-[12px]'></div>
                 </div>
                 <Link to={`/editproduct/${id}`}>
                     <FaEdit className='hover:text-red-500 text-xl' />

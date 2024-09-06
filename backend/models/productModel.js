@@ -7,6 +7,10 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    nameAMH: {
+        type: String,
+        required: true
+    },
     tags: {
         type: Array,
         required: true
@@ -16,6 +20,10 @@ const productSchema = mongoose.Schema({
         required: true
     },
     description: {
+        type: String,
+        required: true,
+    },
+    descriptionAMH: {
         type: String,
         required: true,
     },

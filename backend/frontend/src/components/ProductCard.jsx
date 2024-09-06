@@ -1,8 +1,10 @@
 import React from 'react'
 import { FaShoppingCart } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
+import useAdmin from '../zustand/useAdmin'
 
-export default function ProductCard({ name, img, id }) {
+export default function ProductCard({ name, nameAMH, img, id }) {
+    const { isEng } = useAdmin()
     const navigate = useNavigate()
 
     const handleclick = () => {
@@ -17,7 +19,7 @@ export default function ProductCard({ name, img, id }) {
             </div>
             <div className='flex p-1 pr-3 text-white bg-[#201408] justify-between items-center'>
                 <div className='pl-2'>
-                    <div className='text-[13px] font-bold'>{name}</div>
+                    <div className='text-[13px] font-bold'>{isEng ? name : nameAMH}</div>
                     <div className='font-light text-[12px]'>More detail</div>
                 </div>
                 <FaShoppingCart className='text-2xl' />

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AdminNavigation from '../../components/AdminNavigation';
 import ProductAdminCard from '../../components/ProductAdminCard';
-import useAdmin from '../../zustand/useAdmin';
 
 export default function AdminHome() {
     const [products, setProducts] = useState([]);
@@ -52,6 +51,7 @@ export default function AdminHome() {
                                 img={product.imageURLs[0]} // Assuming the first image is used for the card
                                 id={product._id}
                                 name={product.name}
+                                nameAMH={product.nameAMH}
                                 onDelete={fetchProducts}
                             />
                         ))}

@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 router.get('/', getElements)
-// router.post('/add', addElements)
+router.post('/add', verifyAdmin, addElements)
 router.put('/update', verifyAdmin, UpdateElements);
 
 

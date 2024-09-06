@@ -28,10 +28,12 @@ const storeImage = async (file) => {
 };
 
 export default function AddProduct() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         productName: '',
         productDescription: '',
+        productNameAMH: '',          // New field for Amharic name
+        productDescriptionAMH: '',   // New field for Amharic description
         basePrice: '',
         discountPercent: '',
         tags: [],
@@ -62,6 +64,8 @@ export default function AddProduct() {
         const newErrors = {};
         if (!formData.productName) newErrors.productName = 'Product Name is required';
         if (!formData.productDescription) newErrors.productDescription = 'Product Description is required';
+        if (!formData.productNameAMH) newErrors.productNameAMH = 'Amharic Product Name is required';
+        if (!formData.productDescriptionAMH) newErrors.productDescriptionAMH = 'Amharic Product Description is required';
         if (!formData.basePrice) newErrors.basePrice = 'Base Price is required';
         if (!formData.discountPercent) newErrors.discountPercent = 'Discount Percent is required';
         setErrors(newErrors);
@@ -80,7 +84,9 @@ export default function AddProduct() {
                 // Adjusting the form data to match the schema
                 const updatedFormData = {
                     name: formData.productName,
+                    nameAMH: formData.productNameAMH,           // Added Amharic name field
                     description: formData.productDescription,
+                    descriptionAMH: formData.productDescriptionAMH, // Added Amharic description field
                     regularPrice: formData.basePrice,
                     discountedPercent: formData.discountPercent,
                     tags: formData.tags,
@@ -99,12 +105,14 @@ export default function AddProduct() {
                 if (!res.ok) {
                     throw new Error('Failed to post product');
                 }
-                navigate('/admin')
+                navigate('/admin');
 
                 // Clear form after successful submission
                 setFormData({
                     productName: '',
                     productDescription: '',
+                    productNameAMH: '',           // Clear Amharic name
+                    productDescriptionAMH: '',    // Clear Amharic description
                     basePrice: '',
                     discountPercent: '',
                     tags: [],
@@ -119,20 +127,19 @@ export default function AddProduct() {
         }
     };
 
-
     const handleImagesSelect = (files) => {
         setImageFiles(files);
     };
 
     return (
-        <div className='flex  flex-col  lg:flex-row gap-5'>
+        <div className='flex flex-col lg:flex-row gap-5'>
             <AdminNavigation />
-            <div className='lg:pl-48 flex-1 p-5 '>
+            <div className='lg:pl-48 flex-1 p-5'>
                 <div className='font-bold text-2xl mb-5'>Add Products</div>
-                <form className='flex  flex-col lg:flex-row gap-5' onSubmit={handleSubmit}>
+                <form className='flex flex-col lg:flex-row gap-5' onSubmit={handleSubmit}>
                     <div className='mt-5 flex-1'>
                         {/* General Information */}
-                        <div className='rounded-xl border border-slate-300 p-5  mb-5 lg:w-[600px] border-3'>
+                        <div className='rounded-xl border border-slate-300 p-5 mb-5 lg:w-[600px] border-3'>
                             <h2 className='font-bold text-lg mb-3'>General Information</h2>
                             <div className='mb-4'>
                                 <label className='block mb-1'>Product Name:</label>
@@ -154,13 +161,29 @@ export default function AddProduct() {
                                 />
                                 {errors.productDescription && <p className='text-red-500 text-sm'>{errors.productDescription}</p>}
                             </div>
-
-
+                            <div className='mb-4'>
+                                <label className='block mb-1'>Amharic Product Name:</label>
+                                <input
+                                    name='productNameAMH'
+                                    value={formData.productNameAMH}
+                                    onChange={handleChange}
+                                    className={`w-full border ${errors.productNameAMH ? 'border-red-500' : 'border-slate-300'} outline-none border-none bg-[#ffecd7] p-2 rounded-md`}
+                                />
+                                {errors.productNameAMH && <p className='text-red-500 text-sm'>{errors.productNameAMH}</p>}
+                            </div>
+                            <div className='mb-4'>
+                                <label className='block mb-1'>Amharic Product Description:</label>
+                                <textarea
+                                    name='productDescriptionAMH'
+                                    value={formData.productDescriptionAMH}
+                                    onChange={handleChange}
+                                    className={`w-full border ${errors.productDescriptionAMH ? 'border-red-500' : 'border-slate-300'} outline-none border-none bg-[#ffecd7] p-2 rounded-md`}
+                                />
+                                {errors.productDescriptionAMH && <p className='text-red-500 text-sm'>{errors.productDescriptionAMH}</p>}
+                            </div>
                         </div>
                         <div className='rounded-xl border border-slate-300 p-5 mb-5 lg:w-[600px] border-3'>
                             <h2 className='font-bold text-lg mb-3'>Pricing</h2>
-
-                            {/* {pricing} */}
                             <div className='mb-4'>
                                 <label className='block mb-1'>Base Price:</label>
                                 <input
@@ -189,12 +212,11 @@ export default function AddProduct() {
                     <div className='flex-1'>
                         {/* Image Upload */}
                         <div className='mb-5'>
-                            <ImageUploader onImagesSelect={handleImagesSelect} />
+                            <ImageUploader onImagesSelect={handleImagesSelect} formimages={[]} />
                         </div>
 
                         {/* Tag Selection */}
                         <div className='rounded-xl border border-slate-300 p-5 mb-5 lg:w-[500px] border-3'>
-
                             <div className='flex justify-between items-center'>
                                 <h2 className='font-bold text-lg'>Tags</h2>
                                 <div className='flex gap-2'>
@@ -202,7 +224,7 @@ export default function AddProduct() {
                                         type='text'
                                         value={newTag}
                                         onChange={(e) => setNewTag(e.target.value)}
-                                        className=' p-2 text-sm outline-none border-none bg-[#ffead1]  rounded-md flex-1'
+                                        className='p-2 text-sm outline-none border-none bg-[#ffead1] rounded-md flex-1'
                                         placeholder='Add a new tag'
                                     />
                                     <button
@@ -231,7 +253,7 @@ export default function AddProduct() {
                         <div className='flex justify-center mt-5'>
                             <button
                                 type='submit'
-                                className='bg-orange-500 w-[98%]   text-white py-3 rounded-md hover:bg-orange-600'
+                                className='bg-orange-500 w-[98%] text-white py-3 rounded-md hover:bg-orange-600'
                                 disabled={loading}
                             >
                                 {loading ? 'Posting...' : 'POST PRODUCT'}

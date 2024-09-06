@@ -5,9 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FaShoppingCart, FaTelegramPlane } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
+import useAdmin from '../zustand/useAdmin';
 
 export default function Product() {
     const { id } = useParams();
+    const { isEng } = useAdmin()
     const [product, setProduct] = useState(null);
     const [currentImage, setCurrentImage] = useState('');
 
@@ -52,18 +54,18 @@ export default function Product() {
                 <div className='pt-10 p-2 w-[340px] lg:w-[500px]'>
                     <div className='flex justify-between'>
                         <div className='text-[23px] lg:text-4xl'>
-                            <span className='text-slate-500'>Name:</span> {product.name}
+                            <span className='text-slate-500'>{isEng ? 'Name:' : 'ስም:'}</span> {isEng ? product.name : product.nameAMH}
                         </div>
                         <div className='rounded-full lg:text-lg text-[15px] h-16 w-18 flex ml-2 p-3 font-bold text-center items-center  bg-green-600 text-white'>
-                            {product.discountedPercent}% OFF
+                            {product.discountedPercent}% {isEng ? 'OFF' : 'ቅናሽ'}
                         </div>
                     </div>
 
                     <div className='mt-4 text-md lg:text-lg text-slate-600'>
-                        <span className='text-lg lg:text-2xl text-black'>Description:</span> {product.description}
+                        <span className='text-lg lg:text-2xl text-black'>{isEng ? 'Description:' : 'መግለጫ:'} </span> {isEng ? product.description : product.descriptionAMH}
                     </div>
                     <div className='mt-5 gap-3 flex text-xl'>
-                        <span className='text-2xl'>Price:</span>
+                        <span className='text-2xl'>{isEng ? 'Price:' : 'ዋጋ:'}</span>
                         <div className='flex gap-3'>
                             <span className='text-2xl text-green-500'>{product.regularPrice - (product.regularPrice * product.discountedPercent / 100)} birr</span>
                             <span className='text-red-600 text-md mt-1 line-through'>{product.regularPrice} birr</span>
@@ -80,7 +82,7 @@ export default function Product() {
                     <div className='mt-10 mb-20 flex gap-5 flex-col lg:flex-row items-center'>
                         <div className='text-lg lg:text-2xl hover:opacity-50 items-center flex gap-2 rounded-xl bg-green-500 text-white p-2 w-fit'>
                             <FaShoppingCart className='text-xl lg:text-2xl' />
-                            Order Now
+                            {isEng ? 'Order Now' : 'አሁኑን ይዘዙን'}
                         </div>
                         <ul className="flex gap-5">
                             <li><a href="#" aria-label="Facebook" className="text-3xl hover:text-4xl text-blue-800 hover:text-[#61dafb]"><FontAwesomeIcon icon={faFacebookF} /></a></li>
