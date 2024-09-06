@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
+import useAdmin from '../zustand/useAdmin';
 
 export default function Search() {
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
+    const { isEng } = useAdmin()
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -26,7 +28,7 @@ export default function Search() {
         <form onSubmit={handleSearch} className="flex items-center ml-4 bg-orange-100 p-1 rounded-lg shadow-md">
             <input
                 type="text"
-                placeholder="Search"
+                placeholder={isEng ? "Search" : 'ፈልግ'}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="bg-orange-100 flex-grow pl-2 lg:text-lg text-[12px] border-none outline-none"

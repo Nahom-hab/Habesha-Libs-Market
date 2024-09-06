@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
+import useAdmin from '../zustand/useAdmin';
 
 export default function Products({ name, productpepage }) {
     const [products, setProducts] = useState([]);
+    const { isEng } = useAdmin()
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = productpepage;
     const [totalPages, setTotalPages] = useState(1);
@@ -70,6 +72,7 @@ export default function Products({ name, productpepage }) {
                             id={product._id}
                             img={product.imageURLs}
                             name={product.name}
+                            nameAMH={product.nameAMH}
                             description={product.description}
                             regularPrice={product.regularPrice}
                             discountedPercent={product.discountedPercent}
@@ -84,7 +87,7 @@ export default function Products({ name, productpepage }) {
                     onClick={() => handlePageChange(currentPage - 1)}
                     disabled={currentPage === 1}
                     className='lg:px-4 px-1 rounded-md py-2 border border-red-950'>
-                    Previous
+                    {isEng ? 'Previous' : 'ቀደም'}
                 </button>
                 {getPaginationGroup().map((pageNumber) => (
                     <button
@@ -98,7 +101,7 @@ export default function Products({ name, productpepage }) {
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
                     className='lg:px-4 px-1 rounded-md py-2 border border-red-950'>
-                    Next
+                    {isEng ? 'Next' : 'ቀጣይ'}
                 </button>
             </div>
         </div>

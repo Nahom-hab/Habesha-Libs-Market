@@ -41,10 +41,6 @@ const ElementSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    productImg: {
-        type: String,
-        required: true
-    },
     eventTitle: {
         type: String,
         required: true
@@ -61,11 +57,51 @@ const ElementSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    advertizeIMG: {
+    discriptionimg1: {
         type: String,
         required: true
     },
-    discriptionimg1: {
+    titleLine1AMH: {
+        type: String,
+        required: true
+    },
+    titleLine2AMH: {
+        type: String,
+        required: true
+    },
+    subtitleAMH: {
+        type: String,
+        required: true
+    },
+    shopAddressAMH: {
+        type: String,
+        required: true
+    },
+    discountDescAMH: {
+        type: String,
+        required: true
+    },
+    productNameAMH: {
+        type: String,
+        required: true
+    },
+    productDescAMH: {
+        type: String,
+        required: true
+    },
+    eventTitleAMH: {
+        type: String,
+        required: true
+    },
+    eventDescAMH: {
+        type: String,
+        required: true
+    },
+    productDesc2AMH: {
+        type: String,
+        required: true
+    },
+    productTitle2AMH: {
         type: String,
         required: true
     }

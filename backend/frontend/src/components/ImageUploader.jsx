@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -21,13 +21,25 @@ const DraggableImage = ({ image, index, moveImage, removeImage }) => {
         },
     });
 
+    // Determine if image is a local file or a URL
+    const imageUrl = image instanceof File ? URL.createObjectURL(image) : image;
+
+    useEffect(() => {
+        // Revoke object URL when the component unmounts or when image changes
+        return () => {
+            if (image instanceof File) {
+                URL.revokeObjectURL(imageUrl);
+            }
+        };
+    }, [image, imageUrl]);
+
     return (
         <div
             ref={(node) => ref(drop(node))}
             className='relative'
         >
             <img
-                src={URL.createObjectURL(image)}
+                src={imageUrl}
                 alt={`Selected ${index}`}
                 className='w-28 h-28 object-cover rounded-xl'
             />
@@ -39,8 +51,11 @@ const DraggableImage = ({ image, index, moveImage, removeImage }) => {
     );
 };
 
-const ImageUploader = ({ onImagesSelect, imagee }) => {
+const ImageUploader = ({ onImagesSelect, formimages }) => {
     const [images, setImages] = useState([]);
+
+
+
     const handleFileChange = (e) => {
         const files = Array.from(e.target.files);
         setImages((prev) => [...prev, ...files]);
@@ -63,8 +78,7 @@ const ImageUploader = ({ onImagesSelect, imagee }) => {
     return (
         <DndProvider backend={HTML5Backend}>
             <div className='rounded-xl mt-5 border border-slate-300 p-5 h-fit lg:w-[500px] border-3'>
-
-                <div className=' flex justify-between items-center'>
+                <div className='flex justify-between items-center'>
                     <div className='font-bold'>Product Media</div>
                     <label htmlFor='photo' className={`bg-orange-400 ${images.length > 0 ? '' : 'hidden'} hover:bg-orange-500 p-1 text-sm rounded-lg cursor-pointer`}>
                         Add Images

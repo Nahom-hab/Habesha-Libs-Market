@@ -93,6 +93,30 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 placeholder='Subtitle'
                                 className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
+                            <input
+                                type='text'
+                                name='titleLine1AMH'
+                                value={localFormData.titleLine1AMH}
+                                onChange={handleInputChange}
+                                placeholder='Title Line 1 AMHARIC'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
+                            />
+                            <input
+                                type='text'
+                                name='titleLine2AMH'
+                                value={localFormData.titleLine2AMH}
+                                onChange={handleInputChange}
+                                placeholder='Title Line 2 Amharic'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
+                            />
+                            <input
+                                type='text'
+                                name='subtitleAMH'
+                                value={localFormData.subtitleAMH}
+                                onChange={handleInputChange}
+                                placeholder='Subtitle Amharic'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
+                            />
                         </>
                     )}
                     {currentEditField === 'product' && (
@@ -113,20 +137,54 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 placeholder='Product Description'
                                 className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
+                            <input
+                                type='text'
+                                name='productNameAMH'
+                                value={localFormData.productNameAMH}
+                                onChange={handleInputChange}
+                                placeholder='Product Name Amharic'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
+                            />
+                            <input
+                                type='text'
+                                name='productDescAMH'
+                                value={localFormData.productDescAMH}
+                                onChange={handleInputChange}
+                                placeholder='Product Description Amharic'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
+                            />
                         </>
                     )}
                     {currentEditField === 'address' && (
-                        <input
-                            type='text'
-                            name='shopAddress'
-                            value={localFormData.shopAddress}
-                            onChange={handleInputChange}
-                            placeholder='Shop Address'
-                            className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
-                        />
+                        <>
+                            <input
+                                type='text'
+                                name='shopAddress'
+                                value={localFormData.shopAddress}
+                                onChange={handleInputChange}
+                                placeholder='Shop Address'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
+                            />
+                            <input
+                                type='text'
+                                name='shopAddressAMH'
+                                value={localFormData.shopAddressAMH}
+                                onChange={handleInputChange}
+                                placeholder='Shop Address Amharic'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
+                            />
+                        </>
                     )}
                     {currentEditField === 'event' && (
                         <>
+                            <input
+                                type='text'
+                                name='eventTitleAmh'
+                                value={localFormData.eventTitleAMH}
+                                onChange={handleInputChange}
+                                placeholder='Event Title Amharic'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
+                            />
                             <input
                                 type='text'
                                 name='eventTitle'
@@ -141,6 +199,14 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 value={localFormData.eventDesc}
                                 onChange={handleInputChange}
                                 placeholder='Event Description'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
+                            />
+                            <input
+                                type='text'
+                                name='eventDescAMH'
+                                value={localFormData.eventDescAMH}
+                                onChange={handleInputChange}
+                                placeholder='Event Description Amharic'
                                 className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
                             {/* <input
@@ -178,6 +244,30 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 placeholder='Product Description 2'
                                 className='block mb-2 w-full p-2 border bg-[#fde4ca]s border-gray-300 rounded'
                             />
+                            <input
+                                type='text'
+                                name='discountTextAMH'
+                                value={localFormData.discountTextAMH}
+                                onChange={handleInputChange}
+                                placeholder='Discount Text Amharic'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
+                            />
+                            <input
+                                type='text'
+                                name='productTitle2AMH'
+                                value={localFormData.productTitle2AMH}
+                                onChange={handleInputChange}
+                                placeholder='Product Title 2 Amharic'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
+                            />
+                            <input
+                                type='text'
+                                name='productDesc2AMH'
+                                value={localFormData.productDesc2AMH}
+                                onChange={handleInputChange}
+                                placeholder='Product Description 2 Amharic'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca]s border-gray-300 rounded'
+                            />
                         </>
                     )}
                     {currentEditField === 'discount' && (
@@ -196,6 +286,22 @@ const EditPopup = ({ isOpen, onClose, formData, formImages, onSave, currentEditF
                                 value={localFormData.discountDesc}
                                 onChange={handleInputChange}
                                 placeholder='Discount Description'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
+                            />
+                            <input
+                                type='text'
+                                name='discountTextAMH'
+                                value={localFormData.discountTextAMH}
+                                onChange={handleInputChange}
+                                placeholder='Discount Text Amharic'
+                                className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
+                            />
+                            <input
+                                type='text'
+                                name='discountDescAMH'
+                                value={localFormData.discountDescAMH}
+                                onChange={handleInputChange}
+                                placeholder='Discount Description Amharic'
                                 className='block mb-2 w-full p-2 border bg-[#fde4ca] border-gray-300 rounded'
                             />
                             {/* <input
