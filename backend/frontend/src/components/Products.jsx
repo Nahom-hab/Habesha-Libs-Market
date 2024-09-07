@@ -70,7 +70,7 @@ export default function Products({ name, productpepage }) {
                         <ProductCard
                             key={product._id}
                             id={product._id}
-                            img={product.imageURLs}
+                            img={product.imageURLs[0]}
                             name={product.name}
                             nameAMH={product.nameAMH}
                             description={product.description}
