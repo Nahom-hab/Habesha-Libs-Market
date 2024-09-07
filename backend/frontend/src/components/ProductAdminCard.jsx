@@ -50,7 +50,7 @@ export default function ProductAdminCard({ img, name, nameAMH, ViewCount, id, on
             <div className='flex p-1 pr-3 text-white bg-[#201408] justify-between items-center'>
                 <div className='pl-2'>
                     <div className='text-[13px] font-bold'>{isEng ? name : nameAMH}</div>
-                    <div className='font-light text-[12px]'>{ViewCount} views</div>
+                    <div className='font-light text-[12px]'>{ViewCount} {isEng ? 'views' : 'እይታ'}</div>
                 </div>
                 <Link to={`/editproduct/${id}`}>
                     <FaEdit className='hover:text-red-500 text-xl' />
