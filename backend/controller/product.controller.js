@@ -101,3 +101,22 @@ export const searchProduct = async (req, res, next) => {
         next(errorHandeler(500, 'Internal server error'));
     }
 };
+
+export const updateProductViewCount = async (req, res, next) => {
+    try {
+        // Find the product by ID
+        const product = await Product.findById(req.params.id);
+        if (!product) {
+            return next(errorHandeler(404, 'Product not found'));
+        }
+
+        // Increment the view count
+        product.ViewCount = (product.ViewCount || 0) + 1;
+
+        // Save the updated product
+        const updatedProduct = await product.save();
+        res.status(200).json(updatedProduct);
+    } catch (error) {
+        next(error);
+    }
+};

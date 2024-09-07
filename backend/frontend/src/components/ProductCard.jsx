@@ -3,12 +3,13 @@ import { FaShoppingCart } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import useAdmin from '../zustand/useAdmin'
 
-export default function ProductCard({ name, nameAMH, img, id }) {
+export default function ProductCard({ name, nameAMH, img, id, handleViewCount }) {
     const { isEng } = useAdmin()
     const navigate = useNavigate()
 
     const handleclick = () => {
         navigate(`/product/${id}`)
+        handleViewCount()
     }
 
     return (

@@ -34,7 +34,7 @@ export default function Header() {
             <div className='flex p-2 h-18 justify-between'>
                 <Link to='/'>
                     <h3 className='text-lg md:text-4xl'>
-                        <span className={`font-bold md:text-4xl ${isEng ? '' : 'mr-3'} text-lg`}>{isEng ? 'Teke' : 'ቴክ'}</span>{isEng ? 'Habesha' : 'ሐበሻ'}
+                        <span className={`font-bold md:text-4xl ${isEng ? '' : 'lg:mr-3 mr-1'} text-lg`}>{isEng ? 'Teke' : 'ቴክ'}</span>{isEng ? 'Habesha' : 'ሐበሻ'}
                     </h3>
                 </Link>
                 <div className='flex lg:gap-14 gap-4 justify-between items-center'>

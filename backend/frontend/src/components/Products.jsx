@@ -4,7 +4,7 @@ import useAdmin from '../zustand/useAdmin';
 
 export default function Products({ name, productpepage }) {
     const [products, setProducts] = useState([]);
-    const { isEng } = useAdmin()
+    const { isEng } = useAdmin();
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = productpepage;
     const [totalPages, setTotalPages] = useState(1);
@@ -42,13 +42,28 @@ export default function Products({ name, productpepage }) {
         }, 300);
     };
 
-    // Determine the pages to display
+    const handleViewCount = async (id) => {
+        try {
+            const res = await fetch(`/api/product/view/${id}`, {
+                method: 'PUT', // or 'PUT' based on your API design
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ increment: 1 }),
+            });
+            if (!res.ok) {
+                throw new Error('Failed to update view count');
+            }
+        } catch (error) {
+            console.error('Error updating view count:', error.message);
+        }
+    };
+
     const getPaginationGroup = () => {
         const maxPageDisplay = 5;
         let startPage = Math.max(1, currentPage - Math.floor(maxPageDisplay / 2));
         let endPage = Math.min(totalPages, startPage + maxPageDisplay - 1);
 
-        // Adjust startPage if at the last few pages
         if (endPage - startPage < maxPageDisplay - 1) {
             startPage = Math.max(1, endPage - maxPageDisplay + 1);
         }
@@ -63,7 +78,6 @@ export default function Products({ name, productpepage }) {
             </div>
             {isLoading ? (
                 <div className="mt-8 animate-spin h-10 w-10 border-4 border-[#201408] border-t-transparent rounded-full"></div>
-
             ) : (
                 <div className={`grid grid-cols-2 mt-8 gap-10 lg:grid-cols-4 transition-opacity duration-300 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
                     {currentProducts.map((product) => (
@@ -78,6 +92,7 @@ export default function Products({ name, productpepage }) {
                             discountedPercent={product.discountedPercent}
                             tags={product.tags}
                             ViewCount={product.ViewCount}
+                            handleViewCount={() => handleViewCount(product._id)}
                         />
                     ))}
                 </div>

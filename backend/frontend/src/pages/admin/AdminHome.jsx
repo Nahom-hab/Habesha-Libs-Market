@@ -52,7 +52,9 @@ export default function AdminHome() {
                                 id={product._id}
                                 name={product.name}
                                 nameAMH={product.nameAMH}
+                                ViewCount={product.ViewCount}
                                 onDelete={fetchProducts}
+
                             />
                         ))}
                     </div>

@@ -2,9 +2,11 @@ import React from 'react';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import useAdmin from '../zustand/useAdmin';
+import { useNavigate } from 'react-router-dom';
 
-export default function ProductAdminCard({ img, name, nameAMH, id, onDelete }) {
+export default function ProductAdminCard({ img, name, nameAMH, ViewCount, id, onDelete }) {
     const { isEng } = useAdmin()
+    const navigate = useNavigate()
     const handleDelete = async () => {
         const confirmed = window.confirm("Are you sure you want to delete this product?");
         if (!confirmed) return;
@@ -26,8 +28,14 @@ export default function ProductAdminCard({ img, name, nameAMH, id, onDelete }) {
         }
     };
 
+
+    const handleclick = () => {
+        navigate(`/product/${id}`)
+        handleViewCount()
+    }
+
     return (
-        <div className='lg:w-[200px] w-[160px] bg-[#201408] rounded-xl overflow-hidden shadow-md shadow-black relative'>
+        <div onClick={handleclick} className='lg:w-[200px] w-[160px] bg-[#201408] rounded-xl overflow-hidden shadow-md shadow-black relative'>
             {/* Image container */}
             <div className='relative overflow-hidden lg:w-[196px] w-[156px] h-[200px] ml-[2px] lg:h-[230px]'>
                 <img className='w-full h-full object-cover ' src={img} alt={name} />
@@ -42,7 +50,7 @@ export default function ProductAdminCard({ img, name, nameAMH, id, onDelete }) {
             <div className='flex p-1 pr-3 text-white bg-[#201408] justify-between items-center'>
                 <div className='pl-2'>
                     <div className='text-[13px] font-bold'>{isEng ? name : nameAMH}</div>
-                    <div className='font-light text-[12px]'></div>
+                    <div className='font-light text-[12px]'>{ViewCount} views</div>
                 </div>
                 <Link to={`/editproduct/${id}`}>
                     <FaEdit className='hover:text-red-500 text-xl' />
