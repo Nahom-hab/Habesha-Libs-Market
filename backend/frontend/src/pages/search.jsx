@@ -34,6 +34,22 @@ export default function Search() {
         };
         fetchData();
     }, [location.search]);
+    const handleViewCount = async (id) => {
+        try {
+            const res = await fetch(`/api/product/view/${id}`, {
+                method: 'PUT', // or 'PUT' based on your API design
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ increment: 1 }),
+            });
+            if (!res.ok) {
+                throw new Error('Failed to update view count');
+            }
+        } catch (error) {
+            console.error('Error updating view count:', error.message);
+        }
+    };
 
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -74,6 +90,8 @@ export default function Search() {
                                 discountedPercent={product.discountedPercent}
                                 tags={product.tags}
                                 ViewCount={product.ViewCount}
+                                handleViewCount={() => handleViewCount(product._id)}
+
                             />
                         ))}
                     </div>
